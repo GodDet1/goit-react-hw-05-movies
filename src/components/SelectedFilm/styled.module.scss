@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & p,
+  & h2,
+  & h3 {
+    color: ghostwhite;
+  }
+}

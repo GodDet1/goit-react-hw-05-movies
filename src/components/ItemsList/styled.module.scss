@@ -1,0 +1,43 @@
+.list {
+  padding: 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.list_item {
+  width: 330px;
+  border-radius: 5px;
+  background-color: ghostwhite;
+
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.list_link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & p {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 5px;
+
+    line-height: 1.4;
+  }
+
+  & img {
+    display: block;
+    overflow: hidden;
+    width: 330px;
+    height: 495px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}

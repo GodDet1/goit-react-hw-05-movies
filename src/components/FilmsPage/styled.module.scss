@@ -1,0 +1,27 @@
+.container {
+  padding: 10px;
+}
+
+.btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.h3 {
+  text-align: center;
+  color: ghostwhite;
+}
+
+.link_list {
+  color: ghostwhite;
+  padding: 0px;
+
+  & li {
+    text-align: center;
+
+    &:first-child {
+      margin-bottom: 10px;
+    }
+  }
+}
