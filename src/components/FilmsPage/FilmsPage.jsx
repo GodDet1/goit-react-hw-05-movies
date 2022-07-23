@@ -20,9 +20,8 @@ function FilmsPage() {
     fetchfilmById(postId).then(({ data }) => setFilm(data));
   }, [postId]);
 
-  const handleClick = () => {
-    navigate(state.from, { replace: true });
-  };
+  const handleClick = () =>
+    state === null ? navigate('/') : navigate(state.from);
 
   return (
     <section className={styled.container + ' container'}>
