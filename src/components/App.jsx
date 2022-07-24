@@ -17,6 +17,7 @@ export const App = () => {
   useEffect(() => {
     fetchTrendingFilms.then(({ data: { results } }) => setFilms(results));
   }, []);
+  console.log(pathname);
 
   return (
     <>

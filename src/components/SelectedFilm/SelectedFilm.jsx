@@ -19,7 +19,6 @@ function SelectedFilm({
     genresData.forEach(({ name }) => arrGenre.push(name));
     return arrGenre.join(', ');
   };
-  console.log(genres);
 
   return (
     <div>
@@ -57,7 +56,7 @@ SelectedFilm.propTypes = {
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
       })
-    ).isRequired,
+    ),
     poster_path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     vote_average: PropTypes.number.isRequired,
