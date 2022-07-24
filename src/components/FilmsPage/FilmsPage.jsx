@@ -1,18 +1,14 @@
 import { fetchfilmById } from 'API/API';
 import SelectedFilm from 'components/SelectedFilm/SelectedFilm';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import {
   Link,
-  Route,
-  Routes,
+  Outlet,
   useLocation,
   useNavigate,
   useParams,
 } from 'react-router-dom';
 import styled from './styled.module.scss';
-
-const Cast = lazy(() => import('components/Cast/Cast'));
-const Rewies = lazy(() => import('components/Rewievs/Rewies'));
 
 function FilmsPage() {
   const { postId } = useParams();
@@ -47,10 +43,7 @@ function FilmsPage() {
         <hr />
 
         <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="cast" element={<Cast />} />
-            <Route path="rewiews" element={<Rewies />} />
-          </Routes>
+          <Outlet />
         </Suspense>
       </section>
     </>

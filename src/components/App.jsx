@@ -7,6 +7,8 @@ import styled from './styled.module.scss';
 const ItemsList = lazy(() => import('./ItemsList/ItemsList'));
 const InputSearch = lazy(() => import('./InputSearch/InputSearch'));
 const FilmsPage = lazy(() => import('./FilmsPage/FilmsPage'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Rewievs = lazy(() => import('./Rewievs/Rewies'));
 
 export const App = () => {
   const [films, setFilms] = useState([]);
@@ -32,7 +34,10 @@ export const App = () => {
           />
 
           <Route path="/movies" element={<InputSearch />} />
-          <Route path="/movies/:postId/*" element={<FilmsPage />} />
+          <Route path="/movies/:postId/*" element={<FilmsPage />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="rewiews" element={<Rewievs />} />
+          </Route>
           <Route path="*" element={<h2>Error 404</h2>} />
         </Routes>
       </Suspense>
