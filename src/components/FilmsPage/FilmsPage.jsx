@@ -19,7 +19,9 @@ function FilmsPage() {
     <>
       <section className={styled.container + ' container'}>
         <Link to={path}>
-          <button type="button">Go back</button>
+          <button type="button" className={styled.btn}>
+            Go back
+          </button>
         </Link>
 
         <SelectedFilm data={film} />
