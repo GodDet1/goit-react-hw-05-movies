@@ -16,6 +16,8 @@ function FilmsPage() {
   const { state } = useLocation();
   const navigate = useNavigate();
 
+  console.log(state.from);
+
   useEffect(() => {
     fetchfilmById(postId).then(({ data }) => setFilm(data));
   }, [postId]);
