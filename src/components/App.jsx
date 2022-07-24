@@ -7,8 +7,6 @@ import styled from './styled.module.scss';
 const ItemsList = lazy(() => import('./ItemsList/ItemsList'));
 const InputSearch = lazy(() => import('./InputSearch/InputSearch'));
 const FilmsPage = lazy(() => import('./FilmsPage/FilmsPage'));
-const Cast = lazy(() => import('./Cast/Cast'));
-const Rewies = lazy(() => import('./Rewievs/Rewies'));
 
 export const App = () => {
   const [films, setFilms] = useState([]);

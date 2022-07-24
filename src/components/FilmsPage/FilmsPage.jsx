@@ -1,11 +1,8 @@
 import { fetchfilmById } from 'API/API';
-import Cast from 'components/Cast/Cast';
-import Rewies from 'components/Rewievs/Rewies';
 import SelectedFilm from 'components/SelectedFilm/SelectedFilm';
-import { Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import {
   Link,
-  Outlet,
   Route,
   Routes,
   useLocation,
@@ -13,6 +10,9 @@ import {
   useParams,
 } from 'react-router-dom';
 import styled from './styled.module.scss';
+
+const Cast = lazy(() => import('./Cast/Cast'));
+const Rewies = lazy(() => import('./Rewievs/Rewies'));
 
 function FilmsPage() {
   const { postId } = useParams();
