@@ -1,6 +1,7 @@
 import { image } from 'API/API';
 import React from 'react';
 import styled from './styled.module.scss';
+import PropTypes from 'prop-types';
 
 function SelectedFilm({
   data: {
@@ -18,6 +19,7 @@ function SelectedFilm({
     genresData.forEach(({ name }) => arrGenre.push(name));
     return arrGenre.join(', ');
   };
+  console.log(genres);
 
   return (
     <div>
@@ -47,5 +49,22 @@ function SelectedFilm({
     </div>
   );
 }
+
+SelectedFilm.propTypes = {
+  data: PropTypes.shape({
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+  }),
+};
 
 export default SelectedFilm;

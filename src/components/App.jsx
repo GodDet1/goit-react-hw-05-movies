@@ -2,9 +2,9 @@ import { fetchTrendingFilms } from 'API/API';
 import { lazy, Suspense, useEffect, useState } from 'react';
 import Nav from './Nav/Nav';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import styled from './styled.module.scss';
 
-const ItemsList = lazy(() => import('./ItemsList/ItemsList'));
+import Home from './views/Home';
+
 const InputSearch = lazy(() => import('./InputSearch/InputSearch'));
 const FilmsPage = lazy(() => import('./FilmsPage/FilmsPage'));
 const Cast = lazy(() => import('./Cast/Cast'));
@@ -25,12 +25,7 @@ export const App = () => {
         <Routes>
           <Route
             path="/"
-            element={
-              <>
-                <h2 className={styled.header}>Trending films</h2>
-                <ItemsList items={films} location={pathname} />
-              </>
-            }
+            element={<Home location={pathname} films={films} />}
           />
 
           <Route path="/movies" element={<InputSearch />} />
