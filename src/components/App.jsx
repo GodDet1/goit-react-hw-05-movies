@@ -32,7 +32,7 @@ export const App = () => {
           />
 
           <Route path="/movies" element={<InputSearch />} />
-          <Route path="/movies/:postId/*" element={<FilmsPage />}></Route>
+          <Route path="/movies/:postId/*" element={<FilmsPage />} />
           <Route path="*" element={<h2>Error 404</h2>} />
         </Routes>
       </Suspense>

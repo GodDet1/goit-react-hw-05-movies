@@ -11,8 +11,8 @@ import {
 } from 'react-router-dom';
 import styled from './styled.module.scss';
 
-const Cast = lazy(() => import('./Cast/Cast'));
-const Rewies = lazy(() => import('./Rewievs/Rewies'));
+const Cast = lazy(() => import('components/Cast/Cast'));
+const Rewies = lazy(() => import('components/Rewievs/Rewies'));
 
 function FilmsPage() {
   const { postId } = useParams();
@@ -45,7 +45,8 @@ function FilmsPage() {
           </li>
         </ul>
         <hr />
-        <Suspense>
+
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="cast" element={<Cast />} />
             <Route path="rewiews" element={<Rewies />} />
