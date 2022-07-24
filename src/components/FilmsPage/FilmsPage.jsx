@@ -13,18 +13,17 @@ import styled from './styled.module.scss';
 function FilmsPage() {
   const { postId } = useParams();
   const [film, setFilm] = useState({});
-  const {
-    state: { from },
-  } = useLocation();
+  const { state } = useLocation();
   const navigate = useNavigate();
 
-  console.log(from);
+  console.log(state);
 
   useEffect(() => {
     fetchfilmById(postId).then(({ data }) => setFilm(data));
   }, [postId]);
 
-  const handleClick = () => (from === null ? navigate('/') : navigate(from));
+  const handleClick = () =>
+    state === null ? navigate('/') : navigate(state.from);
 
   return (
     <>
@@ -37,12 +36,12 @@ function FilmsPage() {
         <h3 className={styled.h3}>Additional info</h3>
         <ul className={styled.link_list}>
           <li>
-            <Link to="cast" state={{ from: from }}>
+            <Link to="cast" state={{ from: state?.from }}>
               Cast
             </Link>
           </li>
           <li>
-            <Link to="rewiews" state={{ from: from }}>
+            <Link to="rewiews" state={{ from: state?.from }}>
               Rewiews
             </Link>
           </li>
