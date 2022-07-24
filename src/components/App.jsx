@@ -21,7 +21,7 @@ export const App = () => {
   return (
     <>
       <Nav />
-      <Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route
             path="/"
@@ -34,11 +34,7 @@ export const App = () => {
           />
 
           <Route path="/movies" element={<InputSearch />} />
-          <Route path="/movies/:postId" element={<FilmsPage />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="rewiews" element={<Rewies />} />
-          </Route>
-
+          <Route path="/movies/:postId/*" element={<FilmsPage />}></Route>
           <Route path="*" element={<h2>Error 404</h2>} />
         </Routes>
       </Suspense>
