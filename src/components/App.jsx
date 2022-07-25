@@ -1,7 +1,6 @@
-import { fetchTrendingFilms } from 'API/API';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense } from 'react';
 import Nav from './Nav/Nav';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Home from './views/Home';
 
@@ -11,22 +10,12 @@ const Cast = lazy(() => import('./Cast/Cast'));
 const Rewievs = lazy(() => import('./Rewievs/Rewies'));
 
 export const App = () => {
-  const [films, setFilms] = useState([]);
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    fetchTrendingFilms.then(({ data: { results } }) => setFilms(results));
-  }, []);
-
   return (
     <>
       <Nav />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route
-            path="/"
-            element={<Home location={pathname} films={films} />}
-          />
+          <Route path="/" element={<Home />} />
 
           <Route path="/movies" element={<InputSearch />} />
           <Route path="/movies/:postId/*" element={<FilmsPage />}>

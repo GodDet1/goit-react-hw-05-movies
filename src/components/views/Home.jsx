@@ -1,21 +1,25 @@
+import { fetchTrendingFilms } from 'API/API';
+import { useEffect, useState } from 'react';
 import { lazy } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from './styled.module.scss';
-import PropTypes from 'prop-types';
 
 const ItemsList = lazy(() => import('components/ItemsList/ItemsList'));
 
-function Home({ location, films }) {
+function Home() {
+  const [films, setFilms] = useState([]);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    fetchTrendingFilms.then(({ data: { results } }) => setFilms(results));
+  }, []);
+
   return (
     <>
       <h2 className={styled.header}>Trending films</h2>
-      <ItemsList items={films} location={location} />
+      <ItemsList items={films} location={pathname} />
     </>
   );
 }
-
-Home.propTypes = {
-  location: PropTypes.string.isRequired,
-  films: PropTypes.array.isRequired,
-};
 
 export default Home;
